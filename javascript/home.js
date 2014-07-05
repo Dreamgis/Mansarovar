@@ -183,6 +183,7 @@ function(declare, lang, array, dom, on, query, i18n, domStyle, number, Options, 
             // Set home right content
             if (this._options.homeSideContent) {
                 html += this._options.homeSideContent;
+                html += "<button id='btnCerrarSesion' type='button' >Cerrar Sesion</button>";
             }
             node = dom.byId('homeSideContent');
             this.setNodeHTML(node, html);

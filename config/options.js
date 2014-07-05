@@ -1,7 +1,7 @@
 define([], function() {
     var config = {
-        "group": "b3fdc8ffe017485b902607acdb3be870",
-        "appid": "",
+        "group": "",
+        "appid": "751a43643daa4cd58e757d734f645bcc",
         "theme": "blueTheme",
         "siteTitle": "DreamGIS",
         "siteBannerImage": "",
