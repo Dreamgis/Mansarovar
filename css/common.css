@@ -304,15 +304,15 @@ input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-s
 }
 #header ul #homeItem a img {
 	display:inline-block;
-	margin:0;
-	padding:0;
+	margin:-3px 0 0 0;
+	padding:0;url("../images/ui/background.jpg") no-repeat scroll 100% 100% #e5e5e5
 	max-height:75px;
 }
 /*-------------------------------------------------- */
 /* CONTENT */
 /*-------------------------------------------------- */
 #content {
-	background:#e5e5e5 url(../images/ui/contentBG.jpg) repeat-x top left;
+	background:#e5e5e5 url(../images/ui/background.jpg) no-repeat;
 	color:#404040;
 	min-height:550px;
 }

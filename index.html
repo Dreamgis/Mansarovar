@@ -126,13 +126,21 @@ require(["application/home", "esri/kernel", "dojo/cookie", "dojo/json", "dojo/_b
 });
 </script>
 <script>
+require(["dijit/form/Button", "dojo/dom", "esri/kernel", "dojo/domReady!" ],
+    function (Button, dom, kernel){
+      var key = "esri_jsapi_id_manager_data";
+      
+      var boton = new Button({
+          label: "Cerrar sesion",
+          onClick: function(){
+            window.localStorage.removeItem(key); 
+            window.location.reload();  
+          }
+      }, "btnCerrarSesion").startup();
+        
+   });
 
-btnCerrarSesion
-   function limpiarStorageToken(){
-      var cred = "esri_jsapi_id_manager_data";
-      window.localStorage.removeItem(cred); 
-      window.location.reload();    
-   }     
+      
 </script>
 <!-- END JAVASCRIPT -->
 </body>
