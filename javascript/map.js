@@ -28,7 +28,6 @@ define([
     "esri/dijit/LocateButton",
     "esri/dijit/HomeButton",
     "esri/lang",
-	 
 	"esri/dijit/Measurement"
 ],
 function(declare, lang, array, Deferred, dom, on, query, i18n, domStyle, number, arcgisUtils, Options, Dialog,  Common, locale, ready, Rating, domAttr, domClass, domConstruct, OverviewMap, BasemapGallery, Scalebar,  Legend, keys, Geocoder, LocateButton, HomeButton,esriLang, Measurement) {
@@ -327,14 +326,18 @@ function(declare, lang, array, Deferred, dom, on, query, i18n, domStyle, number,
         /*------------------------------------*/
         setAddressContainer: function() {
             var html = '';
-            html += '<div class="grid_4 alpha searchListCon">';
+            /*---------REQUERIMIENTO no. 7 Quitar buscador de direcciones
+           /* html += '<div class="grid_4 alpha searchListCon">';
             if (this._options.helperServices.geocode[0].url && this._options.showMapSearch) {
                 html += '<div id="gc_search""></div>';
             } else {
                 html += '&nbsp;';
             }
             html += '</div>';
-            html += '<div class="grid_5 omega basemapConRel"><div id="basemapContainer">&nbsp;</div>';
+            */
+            html += '<div class="grid_5 omega basemapConRel"><div id="botonVolver" class="silverButton buttonSingle"><span class="regresarArrowButton">';
+            html += '</span><a href="index.html">Regresar</a></div>'; 
+            html += '<div id="basemapContainer">&nbsp;</div>';
             html += '</div>';
             html += '<div class="clear"></div>';
             // Set
@@ -878,7 +881,9 @@ function(declare, lang, array, Deferred, dom, on, query, i18n, domStyle, number,
                         },"homeButton");
 						hb.startup();
 						var measurement = new Measurement({
-						map: this.map
+						map: this.map,
+						defaultAreaUnit: esri.Units.SQUARE_KILOMETERS,
+						defaultLengthUnit: esri.Units.KILOMETERS
 						}, dom.byId('measurement'));
                         measurement.startup();
                         html += '<h2>' + i18n.viewer.mapPage.layersHeader + '</h2>';

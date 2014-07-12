@@ -20,6 +20,7 @@
 <link href="css/960.css" rel="stylesheet" type="text/css" />
 <link href="css/common.css" rel="stylesheet" type="text/css" />
 <link href="css/themes.css" rel="stylesheet" type="text/css" />
+<link href="css/map.css" rel="stylesheet" type="text/css"/>
 <!--[if gte IE 9]>
 <link href="css/ie9.css" rel="stylesheet" type="text/css" />
 <![endif]-->
@@ -48,11 +49,13 @@
         				<div id="homeButton"></div>
 
         				<div id="locateButton"></div>
-						<div id="floater">
+        				
+        				<div id="measureButton"></div>
+        				
+						<div id="floater" style="display: none;">
 							  <div id="measurement"></div>
 						</div>
-
-    				</div>
+                      </div>
 				</div>
 				<div class="clear"></div>
 			</div>
@@ -159,6 +162,18 @@ require(["application/map", "esri/kernel", "dojo/cookie", "dojo/json", "dojo/_ba
       }
 });
 </script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+             
+       $('#measureButton').on('click',
+        function(){
+            $('#floater').toggle('slow');
+        }); 
+        
+    });
+</script>
+
 <!-- END JAVASCRIPT -->
 </body>
 </html>
