@@ -66,7 +66,7 @@
 				"toRate": "para clasificar." // new
 			},
 			"itemInfo":{
-				"createdLabel": "creado", // new
+				"createdLabel": "Creado", // new
 				"ratingsLabel": "calificación", // new
 				"ratingsLabelPlural": "calificaciones", // new
 				"viewsLabel": "vista", // new
@@ -88,15 +88,15 @@
                 "moreInformation": "Más información",
                 "geoLocateTitle": "Usar la ubicación actual",
                 "openInMobile": "Abrir en Aplicación Móvil",
-                "openInArcGIS": "Map Viewer",
+                "openInArcGIS": "Visor de mapa",
                 "openInExplorer": "Explorer Online",
                 "ownerHeader": "Propietario:",
                 "switchBasemap": "Cambiar mapa base",
 				"getMobileApp": "Obtener aplicación", // new
-				"constraintsHeading":"Use Constraints", // new
-				"createdLabel":"Created", // new
-				"noDescription":"No description.", // new
-				"detailsLabel":"Details" // new
+				"constraintsHeading":"Restricciones de uso", // new
+				"createdLabel":"Creado", // new
+				"noDescription":"No hay descripción.", // new
+				"detailsLabel":"Detalles" // new
             },
             "pagination": {
                 "previous": "Anterior",

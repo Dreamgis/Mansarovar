@@ -7,12 +7,12 @@ define([], function() {
         "siteBannerImage": "images/ui/banner.jpg",
         "mapTitle": "",
         "mapSnippet": "",
-        "mapItemDescription": "",
-        "mapLicenseInfo": "Public License",
+        "mapItemDescription": "No hay descripción",
+        "mapLicenseInfo": "Licencia Pública",
         "homeHeading": "Dreamgis Demo Maps",
         "homeSnippet": "Historias y Mapas de Colombia - GeoApps & GeoServicios",
         "homeSideHeading": "",
-        "homeSideContent": "Demo Map for Dreamgis",
+        "homeSideContent": "Mapas Mansarovar",
         "footerHeading": "",
         "footerDescription": "",
         "footerLogo": "",
@@ -54,7 +54,7 @@ define([], function() {
         "iosAppUrl": "itms://itunes.apple.com/us/app/arcgis/id379687930?mt=8",
         "androidAppUrl": "https://market.android.com/details?id=com.esri.android.client",
         "pointGraphic": "images/ui/bluepoint-21x25.png",
-        "sourceCountry": "USA"
+        "sourceCountry": "COL"
     };
     return config;
 });
