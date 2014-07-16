@@ -71,76 +71,30 @@ require(["application/home", "esri/kernel", "dojo/cookie", "dojo/json", "dojo/_b
     var myApp = App();
     
     cred = "esri_jsapi_id_manager_data";
-     // store credentials/serverInfos before the page unloads
       baseUnload.addOnUnload(storeCredentials);
-      // look for credentials in local storage
       loadCredentials();
       
       function loadCredentials() {
         var idJson, idObject;
 
-        if ( supports_local_storage() ) {
-          // read from local storage
-          idJson = window.localStorage.getItem(cred);
-        } else {
-          // read from a cookie
-          idJson = cookie(cred);
-        }
+        idJson = window.sessionStorage.getItem(cred);
 
         if ( idJson && idJson != "null" && idJson.length > 4) {
           idObject = JSON.parse(idJson);
           kernel.id.initialize(idObject);
-        } else {
-          // console.log("didn't find anything to load :(");
         }
+        
       }
 
       function storeCredentials() {
-        // make sure there are some credentials to persist
         if ( kernel.id.credentials.length === 0 ) {
           return;
         }
 
-        // serialize the ID manager state to a string
         var idString = JSON.stringify(kernel.id.toJson());
-        // store it client side
-        if ( supports_local_storage() ) {
-          // use local storage
-          window.localStorage.setItem(cred, idString);
-          // console.log("wrote to local storage");
-        } else {
-          // use a cookie
-          cookie(cred, idString, { expires: 1 });
-          // console.log("wrote a cookie :-/");
-        }
+        window.sessionStorage.setItem(cred, idString);
       }
-
-      function supports_local_storage() {
-        try {
-          return "localStorage" in window && window["localStorage"] !== null;
-        } catch( e ) {
-          return false;
-        }
-      }
-      
 });
-</script>
-<script>
-require(["dijit/form/Button", "dojo/dom", "esri/kernel", "dojo/domReady!" ],
-    function (Button, dom, kernel){
-      var key = "esri_jsapi_id_manager_data";
-      
-      var boton = new Button({
-          label: "Cerrar sesion",
-          onClick: function(){
-            window.localStorage.removeItem(key); 
-            window.location.reload();  
-          }
-      }, "btnCerrarSesion").startup();
-        
-   });
-
-      
 </script>
 <!-- END JAVASCRIPT -->
 </body>
