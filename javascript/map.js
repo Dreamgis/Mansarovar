@@ -868,6 +868,9 @@ function(declare, lang, array, Deferred, dom, on, query, i18n, domStyle, number,
                     mapDeferred.addCallback(lang.hitch(this, function(response) {
                         // set map
                         this.map = response.map;
+                        
+                        var popupHandle = response.clickEventHandle;
+                        var popupActivo = true;
                         // operation layers
                         var layers = response.itemInfo.itemData.operationalLayers;
                         var html = '';
@@ -885,7 +888,24 @@ function(declare, lang, array, Deferred, dom, on, query, i18n, domStyle, number,
 						defaultAreaUnit: esri.Units.SQUARE_KILOMETERS,
 						defaultLengthUnit: esri.Units.KILOMETERS
 						}, dom.byId('measurement'));
+                        measurement.hide();
                         measurement.startup();
+                        
+                        //Ocultar popups cuando se esta midiendo
+						dojo.query('#measureButton').onclick( function(evt) {
+							if(popupActivo){
+								measurement.show();
+								 dojo.disconnect(popupHandle);
+							}else{
+								measurement.hide();
+								measurement.clearResult();
+								measurement.setTool("area", false);
+								measurement.setTool("distance", false);
+								measurement.setTool("location", false);
+								popupHandle = dojo.connect(response.map, "onClick", response.clickEventListener);
+							}
+	             			popupActivo = !popupActivo;
+						});
                         html += '<h2>' + i18n.viewer.mapPage.layersHeader + '</h2>';
                         // Layer toggles
                         if (this._options.showLayerToggle && layers.length > 0 && mapLayersNode) {
